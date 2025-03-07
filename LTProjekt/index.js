@@ -5,7 +5,8 @@ const client = new Client({
     intents: [
         GatewayIntentBits.Guilds,
         GatewayIntentBits.GuildMessages,
-        GatewayIntentBits.MessageContent
+        GatewayIntentBits.MessageContent,
+        GatewayIntentBits.GuildVoiceStates // WICHTIG für DisTube!
     ],
     messageCacheLifetime: 60,
     fetchAllMembers: false,
@@ -22,7 +23,13 @@ client.aliases = new Collection();
 client.cooldowns = new Collection();
 
 // Audio-Setup mit DisTube
-const DisTube = require('distube');
-client.distube = new DisTube(client, {});
+const { DisTube } = require("distube"); // Richtig für DisTube v4
 
+client.distube = new DisTube(client, {
+    searchSongs: 0,
+    emitNewSongOnly: true,
+    leaveOnFinish: true,
+    leaveOnStop: true
+});
+console.log("TOKEN:", process.env.TOKEN ? "✅ Token gefunden" : "❌ Kein Token gefunden!");
 client.login(process.env.TOKEN);
