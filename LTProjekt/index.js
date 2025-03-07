@@ -27,7 +27,6 @@ const { DisTube } = require("distube"); // Richtig für DisTube v4
 
 client.distube = new DisTube(client, {
     emitNewSongOnly: true,
-    leaveOnStop: true
 });
 console.log("TOKEN:", process.env.TOKEN ? "✅ Token gefunden" : "❌ Kein Token gefunden!");
 client.login(process.env.TOKEN);
