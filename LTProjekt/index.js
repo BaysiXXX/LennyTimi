@@ -26,7 +26,6 @@ client.cooldowns = new Collection();
 const { DisTube } = require("distube"); // Richtig für DisTube v4
 
 client.distube = new DisTube(client, {
-    searchSongs: 0,
     emitNewSongOnly: true,
     leaveOnFinish: true,
     leaveOnStop: true
