@@ -35,4 +35,4 @@ module.exports = {
     await functions.embedbuilder(client, 3000, message, config.colors.yes, "Adding filter!", filter)
     await functions.delay(5000);
   }
-};
+}
